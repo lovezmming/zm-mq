@@ -17,7 +17,7 @@
     </parent>
 
     <modules>
-        <module>zm-mq-activemq</module>
+        <module>zm-mq-service</module>
         <module>zm-mq-rabitmq</module>
         <module>zm-mq-rocketmq</module>
         <module>zm-mq-kafka</module>
@@ -26,6 +26,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <fastjson.version>1.2.29</fastjson.version>
     </properties>
 
     <repositories>
@@ -47,6 +48,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
