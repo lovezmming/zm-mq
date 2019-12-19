@@ -18,9 +18,6 @@
 
     <modules>
         <module>zm-mq-service</module>
-        <module>zm-mq-rabitmq</module>
-        <module>zm-mq-rocketmq</module>
-        <module>zm-mq-kafka</module>
     </modules>
 
     <properties>
