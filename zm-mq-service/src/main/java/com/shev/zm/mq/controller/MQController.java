@@ -2,8 +2,10 @@ package com.shev.zm.mq.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.shev.mq.activemq.service.ActiveMQProducer;
+import com.shev.mq.kafka.service.KafkaProducer;
 import com.shev.mq.rocketmq.service.RocketMQProducer;
 import com.shev.zm.mq.common.activemq.ActiveMQQueue;
+import com.shev.zm.mq.common.kafka.KafkaTopic;
 import com.shev.zm.mq.common.rocketmq.RocketMQTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +43,25 @@ public class MQController
     {
         Map<String, String> params = (Map<String, String>) JSONObject.parse(request);
         rocketMQProducer.sendMessage(RocketMQTopic.ROCKET_MQ_MY_TOPIC, params.get("context"));
+        return "success";
+    }
+
+    @Autowired
+    private KafkaProducer kafkaProducer;
+
+    @PostMapping("/sendKafka")
+    @ResponseBody
+    public String sendKafka(@RequestBody String request)
+    {
+        kafkaProducer.send(KafkaTopic.KAFKA_MY_TOPIC_BAK, request);
+        return "success";
+    }
+
+    @PostMapping("/sendBatchKafka")
+    @ResponseBody
+    public String sendBatchKafka(@RequestBody String request)
+    {
+        kafkaProducer.send(KafkaTopic.KAFKA_MY_TOPIC, request);
         return "success";
     }
 

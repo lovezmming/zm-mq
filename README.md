@@ -31,8 +31,16 @@ add(2019-12-18)
      nohup sh mqbroker -n localhost:9876 &  
   停止指令：  
      sh mqshutdown broker  
-     sh mqshutdown namesrv  
-  1)实现消息的推送
+     sh mqshutdown namesrv    
+  1)springboot2.0集成kafka2.0  
+  2)实现消息的推送
+
+add(2020-01-16)  
+1.新增kafka实现  
+  环境：  
+  centos7 + kafka2.2 + jdk8 + intelliJ IDEA  
+  1)springboot2.0集成kafka2.0  
+  2)实现消息的推送（1:1、1:n）  
   
 
   
